@@ -7,7 +7,7 @@
   <form [formGroup]="angForm" novalidate>
     <div class="form-group">
       <label>Name:</label>
-      <input class="form-control" formControlName="name" type="text" [ngClass]="{'is-invalid': angForm.controls['name'].invalid && (angForm.controls['name'].dirty && angForm.controls['name'].touched), 'is-valid': angForm.controls['name'].valid && (angForm.controls['name'].dirty && angForm.controls['name'].touched)}" />
+      <input class="form-control" formControlName="name" type="text" [ngClass]="{'is-invalid': angForm.controls['name'].invalid && (angForm.controls['name'].dirty && angForm.controls['name'].touched)}" />
       <div
         *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty && angForm.controls['name'].touched)"
         class="alert alert-danger"
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
       <label>Email:</label>
-      <input class="form-control" formControlName="email" type="text" [ngClass]="{'is-invalid': angForm.controls['email'].invalid && (angForm.controls['email'].dirty && angForm.controls['email'].touched), 'is-valid': angForm.controls['email'].valid && (angForm.controls['email'].dirty && angForm.controls['email'].touched)}" />
+      <input class="form-control" formControlName="email" type="text" [ngClass]="{'is-invalid': angForm.controls['email'].invalid && (angForm.controls['email'].dirty && angForm.controls['email'].touched)}" />
       <div
         *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty && angForm.controls['email'].touched)"
         class="alert alert-danger"
@@ -34,7 +34,7 @@
     </div>
     <div class="form-group">
       <label>Password:</label>
-      <input class="form-control" formControlName="password1" type="password" [ngClass]="{'is-invalid': angForm.controls['password1'].invalid && (angForm.controls['password1'].dirty && angForm.controls['password1'].touched), 'is-valid': angForm.controls['password1'].valid && (angForm.controls['password1'].dirty && angForm.controls['password1'].touched)}"/>
+      <input class="form-control" formControlName="password1" type="password" [ngClass]="{'is-invalid': angForm.controls['password1'].invalid && (angForm.controls['password1'].dirty && angForm.controls['password1'].touched)}"/>
       <div
         *ngIf="angForm.controls['password1'].invalid && (angForm.controls['password1'].dirty && angForm.controls['password1'].touched)"
         class="alert alert-danger"
@@ -49,7 +49,7 @@
     </div>
     <div class="form-group">
       <label>Password2:</label>
-      <input class="form-control" formControlName="password2" type="password" [ngClass]="{'is-invalid': angForm.controls['password2'].invalid && (angForm.controls['password2'].dirty && angForm.controls['password2'].touched), 'is-valid': angForm.controls['password2'].valid && (angForm.controls['password2'].dirty && angForm.controls['password2'].touched)}" />
+      <input class="form-control" formControlName="password2" type="password" [ngClass]="{'is-invalid': angForm.controls['password2'].invalid && (angForm.controls['password2'].dirty ), 'is-valid': angForm.controls['password2'].valid && (angForm.controls['password2'].dirty )}" />
       <div
         *ngIf="angForm.controls['password2'].invalid && (angForm.controls['password2'].dirty && angForm.controls['password2'].touched)"
         class="alert alert-danger"

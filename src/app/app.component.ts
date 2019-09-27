@@ -17,7 +17,7 @@ export class AppComponent {
   createForm() {
     this.angForm = this.fb.group({
       name: ["", Validators.required],
-      address: ["", Validators.required],
+      email: ["", [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       password1: ["", [Validators.required, Validators.minLength(8)]],
       password2: ["", [Validators.required, Validators.minLength(8)]]
     }, {validator: AppComponent.passwordMatchValidator});

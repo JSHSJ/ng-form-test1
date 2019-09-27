@@ -1,7 +1,7 @@
 // app.component.ts
 
 import { Component } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, Validators, FormControl, AbstractControl } from "@angular/forms";
 
 @Component({
   selector: "app-root",
@@ -20,6 +20,16 @@ export class AppComponent {
       address: ["", Validators.required],
       password1: ["", [Validators.required, Validators.minLength(8)]],
       password2: ["", [Validators.required, Validators.minLength(8)]]
-    });
+    }, {validator: AppComponent.passwordMatchValidator});
+  }
+
+  static passwordMatchValidator(control: AbstractControl) {
+    const password: string = control.get('password1').value; // get password from our password form control
+    const confirmPassword: string = control.get('password2').value; // get password from our confirmPassword form control
+    // compare is the password match
+    if (password !== confirmPassword) {
+      // if they don't match, set an error in our confirmPassword form control
+      control.get('password2').setErrors({ NoPassswordMatch: true });
+    }
   }
 }

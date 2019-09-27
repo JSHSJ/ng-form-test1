@@ -9,7 +9,7 @@
       <label>Name:</label>
       <input class="form-control" formControlName="name" type="text" />
       <div
-        *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)"
+        *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty && angForm.controls['name'].touched)"
         class="alert alert-danger"
       >
         <div *ngIf="angForm.controls['name'].errors.required">
@@ -21,7 +21,7 @@
       <label>Address:</label>
       <input class="form-control" formControlName="address" type="text" />
       <div
-        *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)"
+        *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty && angForm.controls['address'].touched)"
         class="alert alert-danger"
       >
         <div *ngIf="angForm.controls['address'].errors.required">
@@ -33,17 +33,32 @@
       <label>Password:</label>
       <input class="form-control" formControlName="password1" type="password" />
       <div
-        *ngIf="angForm.controls['password1'].invalid && (angForm.controls['password1'].dirty || angForm.controls['password1'].touched)"
+        *ngIf="angForm.controls['password1'].invalid && (angForm.controls['password1'].dirty && angForm.controls['password1'].touched)"
         class="alert alert-danger"
       >
         <div *ngIf="angForm.controls['password1'].errors.required">
           password1 is required.
+        </div>
+        <div *ngIf="angForm.controls['password1'].errors.minlength">
+          password1 length should be at least 8.
         </div>
       </div>
     </div>
     <div class="form-group">
       <label>Password2:</label>
       <input class="form-control" formControlName="password2" type="password" />
+      <div
+        *ngIf="angForm.controls['password2'].invalid && (angForm.controls['password2'].dirty && angForm.controls['password2'].touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="angForm.controls['password2'].errors.required">
+          password2 is required.
+        </div>
+        <div *ngIf="angForm.controls['password2'].errors.minlength">
+          password2 length should be at least 8.
+        </div>
+        <div *ngIf="angForm.controls['password2'].hasError('NoPassswordMatch')" >Passwords are different. They should be equal!</div>
+      </div>
     </div>
     <button
       type="submit"
@@ -57,4 +72,6 @@
   <br />
   <p>Form value: {{ angForm.value | json }}</p>
   <p>Form status: {{ angForm.status | json }}</p>
+  <p>Error status: {{ angForm.controls.password2.errors | json }}</p>
+  <p>Error status: {{ angForm.controls.password2.errors | json }}</p>
 </div>
